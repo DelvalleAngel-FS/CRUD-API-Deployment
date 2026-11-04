@@ -1,1 +1,16 @@
 GET http://localhost:8000/animals
+
+###
+
+GET http://localhost:8000/animals/1234
+
+###
+
+POST http://localhost:8000/animals
+Content-Type : application/json
+
+{
+    "name": "Poodle",
+    "class": "Dog"
+
+}

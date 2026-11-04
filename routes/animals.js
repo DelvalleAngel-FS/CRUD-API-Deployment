@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const Animal = require("../models/animal");
+
 //Restful Endpoints
 //GET, POST, PATCH, DELETE
 
@@ -15,8 +17,17 @@ router.get("/:id", (req, res) => {
 });
 
 //POST CREATE
-router.post("/", (req, res) => {
-  res.send(`Animal ID: ${req.params.id}`);
+router.post("/", async (req, res) => {
+  const animal = new Animal({
+    name: req.body.name,
+    class: req.body.class,
+  });
+  try {
+    const newAnimal = await animal.save();
+    res.status(201).json(newAnimal);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 //Patch Update
