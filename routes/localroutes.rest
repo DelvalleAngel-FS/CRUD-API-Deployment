@@ -10,7 +10,7 @@ POST http://localhost:8000/animals
 Content-Type : application/json
 
 {
-    "name": "Poodle",
+    "name": "Doodle",
     "class": "Dog"
 
 }

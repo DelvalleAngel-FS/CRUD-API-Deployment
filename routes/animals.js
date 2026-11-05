@@ -7,8 +7,13 @@ const Animal = require("../models/animal");
 //GET, POST, PATCH, DELETE
 
 //GET ALL
-router.get("/", (req, res) => {
-  res.send("All Animals Route");
+router.get("/", async (req, res) => {
+  try {
+    const animals = await Animal.find();
+    res.json(animals);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 //GET ONE
@@ -30,7 +35,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//Patch Update
+//PATCH UPDATE
 router.patch("/:id", (req, res) => {
   res.send(`Animal ID: ${req.params.id}`);
 });
