@@ -18,3 +18,15 @@ Content-Type : application/json
 ###
 
 DELETE  http://localhost:8000/animals/6aebcb53a5898fc8d7d3b375
+
+
+###
+
+PATCH  http://localhost:8000/animals/6aebcb53a5898fc8d7d3b375
+Content-Type : application/json
+
+{
+    "name": "New Name",
+    "class": "New Info"
+
+}

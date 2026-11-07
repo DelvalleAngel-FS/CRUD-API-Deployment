@@ -51,7 +51,18 @@ router.post("/", async (req, res) => {
 
 //PATCH UPDATE
 router.patch("/:id", getAnimal, async (req, res) => {
-  res.send(`Animal ID: ${req.params.id}`);
+  if (req.body.name != null) {
+    res.animal.name = req.body.name;
+  }
+  if (req.body.class != null) {
+    res.animal.class = req.body.class;
+  }
+  try {
+    const updatedAnimal = await res.animal.save();
+    res.json(updatedAnimal);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
 });
 
 //Delete
