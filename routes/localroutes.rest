@@ -17,7 +17,7 @@ Content-Type : application/json
 
 ###
 
-DELETE  http://localhost:8000/animals/6aebcb53a5898fc8d7d3b375
+DELETE  http://localhost:8000/animals/6aef660113155acc364d8fe9
 
 
 ###
