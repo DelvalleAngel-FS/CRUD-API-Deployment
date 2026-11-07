@@ -2,7 +2,7 @@ GET http://localhost:8000/animals
 
 ###
 
-GET http://localhost:8000/animals/1234
+GET http://localhost:8000/animals/6aebcb47a5898fc8d7d3b374
 
 ###
 
@@ -10,7 +10,11 @@ POST http://localhost:8000/animals
 Content-Type : application/json
 
 {
-    "name": "Doodle",
+    "name": "Boxer",
     "class": "Dog"
 
 }
+
+###
+
+DELETE  http://localhost:8000/animals/6aebcb53a5898fc8d7d3b375

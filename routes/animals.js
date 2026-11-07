@@ -6,6 +6,20 @@ const Animal = require("../models/animal");
 //Restful Endpoints
 //GET, POST, PATCH, DELETE
 
+const getAnimal = async (req, res, next) => {
+  let animal;
+  try {
+    animal = await Animal.findById(req.params.id);
+    if (animal === null) {
+      return res.status(404).json({ message: "Animal not found" });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: error.message });
+  }
+  res.animal = animal;
+  next();
+};
+
 //GET ALL
 router.get("/", async (req, res) => {
   try {
@@ -17,8 +31,8 @@ router.get("/", async (req, res) => {
 });
 
 //GET ONE
-router.get("/:id", (req, res) => {
-  res.send(`Animal ID: ${req.params.id}`);
+router.get("/:id", getAnimal, async (req, res) => {
+  res.json(res.animal);
 });
 
 //POST CREATE
@@ -36,13 +50,18 @@ router.post("/", async (req, res) => {
 });
 
 //PATCH UPDATE
-router.patch("/:id", (req, res) => {
+router.patch("/:id", getAnimal, async (req, res) => {
   res.send(`Animal ID: ${req.params.id}`);
 });
 
 //Delete
-router.delete("/:id", (req, res) => {
-  res.send(`Animal ID: ${req.params.id}`);
+router.delete("/:id", getAnimal, async (req, res) => {
+  try {
+    await res.animal.remove();
+    res.json({ message: "Animal got removed" });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
 module.exports = router;
