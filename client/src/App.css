@@ -1,0 +1,179 @@
+:root {
+  --jungle-green: #1e352f;
+  --savanna-gold: #c99738;
+  --soft-sand: #f5f2eb;
+  --bark-brown: #4a3b32;
+  --card-bg: #ffffff;
+  --text-main: #2b3a36;
+}
+
+body {
+  margin: 0;
+  background-color: var(--soft-sand);
+  color: var(--text-main);
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+}
+
+.app-navbar {
+  background-color: var(--jungle-green);
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.brand {
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  color: #a0b0ad;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.nav-link.active {
+  color: #ffffff;
+  border-bottom: 2px solid var(--savanna-gold);
+}
+
+.main-viewport {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+.workspace-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+}
+
+.form-pane,
+.spec-card {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.03);
+  border-top: 4px solid var(--savanna-gold);
+  height: fit-content;
+}
+
+.custom-input-form label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--bark-brown);
+}
+
+.custom-input-form input,
+.custom-input-form select {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #dcdad4;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+.action-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+.action-btn.save {
+  background-color: var(--jungle-green);
+  color: white;
+}
+.action-btn.cancel {
+  background-color: #e5e7eb;
+  color: #4b5563;
+}
+
+.animal-record-card {
+  background-color: var(--card-bg);
+  padding: 1.25rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+}
+
+.species-tag {
+  font-style: italic;
+  color: #6b7280;
+  margin: 0.25rem 0 0.5rem 0;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: white;
+}
+
+.status-pill.least-concern {
+  background-color: #10b981;
+}
+.status-pill.vulnerable {
+  background-color: #f59e0b;
+}
+.status-pill.endangered {
+  background-color: #ef4444;
+}
+.status-pill.critically-endangered {
+  background-color: #7f1d1d;
+}
+
+.timestamp {
+  display: block;
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-top: 0.5rem;
+}
+
+.ctrl-btn {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-weight: 500;
+}
+
+.ctrl-btn.edit {
+  background-color: #ebf5ff;
+  color: #1e40af;
+}
+.ctrl-btn.delete {
+  background-color: #fef2f2;
+  color: #991b1b;
+}
+
+.about-viewport {
+  max-width: 700px;
+  margin: 0 auto;
+}

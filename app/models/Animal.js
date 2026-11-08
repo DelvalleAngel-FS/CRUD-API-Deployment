@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 
 const animalSchema = new mongoose.Schema(
   {
-    name: String,
-    class: String,
+    name: { type: String, required: true },
+    species: { type: String, required: true },
+    conservationStatus: { type: String, required: true },
   },
   {
-    // This automatically creates and manages 'createdAt' and 'updatedAt' fields
-    timestamps: { createdAt: "created_at", updatedAt: "updated_at" },
+    timestamps: { createdAt: "created_at", updatedAt: false },
   },
 );
 
