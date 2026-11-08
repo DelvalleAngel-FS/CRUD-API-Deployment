@@ -13,7 +13,7 @@ if (process.env.NODE_ENV === "production") {
   // Directs express to look for static frontend build elements inside client/dist
   app.use(express.static(path.join(__dirname, "client", "dist")));
 
-  // FIXED: Conformed fallback route to match strict Express 5 path-to-regexp syntax
+  // Express 5 conformed wildcard parameter format
   app.get("/:splat*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
   });
