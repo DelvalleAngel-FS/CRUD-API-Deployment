@@ -8,12 +8,14 @@ connectDB();
 
 const PORT = process.env.PORT || 3000;
 
+// ... All your DB connections and app routes must happen ABOVE this block ...
+
 // Serve Static Frontend Assets when deployed to Production
 if (process.env.NODE_ENV === "production") {
-  // Directs express to look for static frontend build elements inside client/dist
+  // 1. Mount the folder containing your compiled index.html and compiled css/js assets
   app.use(express.static(path.join(__dirname, "client", "dist")));
 
-  // FIXED: Changed standard wildcard capture syntax to align with the Express 5 spec
+  // 2. The global catch-all route MUST be the absolute last handler in your server
   app.get("/*splat", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
   });

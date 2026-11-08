@@ -14,10 +14,6 @@ app.use(
 app.use(express.json());
 app.use(morgan("dev"));
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "API is running", success: true });
-});
-
-app.use("/animals", animalRoutes);
+app.use("/api/animals", animalRoutes);
 
 module.exports = app;

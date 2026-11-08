@@ -1,5 +1,5 @@
-// Matches your exact local port (5000) and base endpoint path (/animals)
+// Switches between local development port or the relative production path seamlessly
 export const API_URL =
   window.location.hostname === "localhost"
-    ? "http://localhost:5000/animals"
-    : "/animals";
+    ? "http://localhost:5000/api/animals"
+    : "/api/animals";
