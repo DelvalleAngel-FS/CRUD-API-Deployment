@@ -13,8 +13,8 @@ if (process.env.NODE_ENV === "production") {
   // Directs express to look for static frontend build elements inside client/dist
   app.use(express.static(path.join(__dirname, "client", "dist")));
 
-  // Wildcard backup ensures your page navigation state links map correctly
-  app.get("*", (req, res) => {
+  // CHANGED: Fixed Express 5 path parameter validation syntax error
+  app.get("(.*)", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "dist", "index.html"));
   });
 }
