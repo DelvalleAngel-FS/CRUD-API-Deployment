@@ -6,7 +6,7 @@ const animalRoutes = require("./routes/animalRoutes");
 
 app.use(
   cors({
-    origin: "http://localhost:5173", // Allows your React development site to read data
+    origin: ["http://localhost:5173", "https://onrender.com"],
     methods: ["GET", "POST", "PATCH", "PUT", "DELETE", "OPTIONS"],
     credentials: true,
   }),
